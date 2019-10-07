@@ -11,6 +11,6 @@ stage('first stage')
   
   stage('3rd stage')
   {
-  sh "mkdir ramdev"
+  sh "mkdir bamdev"
   }
  } 
