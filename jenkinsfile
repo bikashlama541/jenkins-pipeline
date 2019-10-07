@@ -8,4 +8,9 @@ stage('first stage')
  {
   sh "touch helloworld.txt"
   }
+  
+  stage('3rd stage')
+  {
+  sh "mkdir ramdev"
+  }
  } 
