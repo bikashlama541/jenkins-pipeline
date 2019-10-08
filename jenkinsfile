@@ -1,4 +1,4 @@
-node{
+node('maven'){
 stage('first stage')
 {
   sh "echo hello world"
