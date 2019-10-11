@@ -17,6 +17,6 @@ stage('first stage')
   
   stage('3rd stage')
   {
-  echo"mkdir bamdev"
+  echo"echo sample in feature branch"
   }
  } 
