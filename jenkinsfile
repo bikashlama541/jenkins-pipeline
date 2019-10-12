@@ -16,6 +16,15 @@ stage('maven define')
   archiveArtifacts '**/target/*.war'
   }
   
+  stage('deployment')
+  {
+    sshagent(['ec2-user'])
+     {
+      sh "ssh -o StrictHostKeyChecking=no ec2-user@54.173.143.175 /home/ec2-user/tomcat9/bin/startup.sh"
+      //sh "scp -o
+      }
+    }  
+  
   stage('3rd stage')
   {
   echo"echo sample in feature branch"
