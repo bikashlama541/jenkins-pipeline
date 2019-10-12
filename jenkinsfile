@@ -6,16 +6,14 @@ stage('maven define')
   def mvnTool = tool 'Apache Maven 3.6.2'
   
   //execute maven
-  sh "${mvnTool}/bin/mvn clean install"
+  sh "${mvnTool}/bin/mvn clean package"
   junit allowEmptyResults: true, testResults: 'target/surefire-reports.*.xml'
-  
-  
   sh "echo hello world"
  } 
  
- stage('maven package') 
+ stage('artifacts') 
  {
-  sh "$mvnTool/bin/mvn clean package -DskipTests=true"
+  archiveArtifacts '**/target?*.war'
   }
   
   stage('3rd stage')
