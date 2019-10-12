@@ -8,6 +8,9 @@ stage('maven define')
   //execute maven
   sh "${mvnTool}/bin/mvn clean install"
   junit allowEmptyResults: true, testResults: 'target/surefire-reports.*.xml'
+  
+  publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'target/sitr', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: 'surefire-report.html'])
+  
   sh "echo hello world"
  } 
  
