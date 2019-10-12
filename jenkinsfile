@@ -13,7 +13,7 @@ stage('maven define')
  
  stage('artifacts') 
  {
-  archiveArtifacts '**/target?*.war'
+  archiveArtifacts '**/target/*.war'
   }
   
   stage('3rd stage')
