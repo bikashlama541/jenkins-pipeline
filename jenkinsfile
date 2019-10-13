@@ -18,7 +18,7 @@ stage('maven define')
   
   stage ('docker build')
   {
-    sh " docker pull helloworld"
+    sh " docker pull hello-world:latest"
   } 
   
   stage('deployment')
