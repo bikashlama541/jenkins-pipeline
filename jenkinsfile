@@ -18,7 +18,7 @@ stage('maven define')
   
   stage ('docker build')
   {
-    sh " docker build -t bikashlama541/bikashapp:2.1.1."
+    sh " docker pull helloworld"
   } 
   
   stage('deployment')
