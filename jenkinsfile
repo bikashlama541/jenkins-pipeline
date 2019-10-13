@@ -16,6 +16,11 @@ stage('maven define')
   archiveArtifacts '**/target/*.war'
   }
   
+  stage ('docker build')
+  {
+    sh " docker build -t bikashlama541/bikashapp:2.1.1."
+  } 
+  
   stage('deployment')
   {
     sshagent(['ec2-user'])
