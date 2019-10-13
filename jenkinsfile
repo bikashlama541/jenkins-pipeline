@@ -19,6 +19,8 @@ stage('maven define')
   stage ('docker build')
   {
     sh " docker build -t bikashlama541/archiveartifacts ."
+    sh "docker run -d bikashlama541/archiveartifacts"
+    sh "docker push bikashlama541/archiveartifacts"
   } 
   
   stage('deployment')
