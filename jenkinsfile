@@ -25,7 +25,7 @@ stage('maven define')
   
   stage('send artifacts to s3'){
   withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-credentials', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-                sh "aws s3 cp addressbook_main/target/addressbook.war s3://jenkins-bucket541/"
+                sh "aws s3 cp /workspace/pipeline-project/addressbook_main/target/addressbook.war  s3://jenkins-bucket541/"
 }
 }
   stage('deployment')
