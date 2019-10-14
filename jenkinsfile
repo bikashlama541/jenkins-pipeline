@@ -25,15 +25,15 @@ stage('maven define')
   
   stage('send artifacts to s3'){
   withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-credentials', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-                sh "aws s3 cp target/addressbook.war s3://jenkins-bucket541/"
+                sh "aws s3 cp addressbook_main/target/addressbook.war s3://jenkins-bucket541/"
 }
 }
   stage('deployment')
   {
     sshagent(['ec2-user'])
      {
-      sh "ssh -o StrictHostKeyChecking=no ec2-user@54.164.194.102 /home/ec2-user/tomcat9/bin/startup.sh"
-     //sh "scp -o StrictHostKeyChecking=no /home/ec2-user/workspace/pipeline-project/addressbook_main/target/addressbook.war ec2-user@54.173.143.175 /home/ec2-user/tomcat9/webapps"
+      sh "ssh -o StrictHostKeyChecking=no ec2-user@54.91.97.11 /home/ec2-user/tomcat9/bin/startup.sh"
+     //sh "scp -o StrictHostKeyChecking=no /home/ec2-user/workspace/pipeline-project/addressbook_main/target/addressbook.war ec2-user@54.91.97.11 /home/ec2-user/tomcat9/webapps"
       }
     }  
   
