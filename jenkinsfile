@@ -22,9 +22,11 @@ stage('maven define')
     sh "docker run -d bikashlama541/archiveartifacts"
     sh "docker push bikashlama541/archiveartifacts"
   } 
+  
+  stage('send artifacts to s3'){
   withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-credentials', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                 sh "aws s3 cp target/addressbook.war s3://jenkins-bucket541/"
-
+}
 }
   stage('deployment')
   {
